@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    *{
+        margin:0;padding:0;box-sizing: border-box;
+    }
+    body{display:flex;justify-content: center;align-items: center;height:100vh;background-color: cadetblue;}
+    .rating{background-color: rgb(194, 27, 85);padding:20px 60px;border-radius: 10px;}
+    .rating h2{position:relative;margin-bottom:10px;}
+    .rating .rating-star{display:flex;align-items: center;gap:20px;justify-content: center;margin-top:20px;font-size: 30px;}
+    .rating .rating-star i{color:darkgrey;transition: all 0.5s;cursor:pointer;}
+    .rating-star i.active{color: yellow;;}
+</style>
+</head>
+<body>
+    <div class="rating">
+        <h2>how is your experience?</h2>
+        <div class="rating-star">
+            <i class="fa fa-star" ></i>
+            <i class="fa fa-star" ></i>
+            <i class="fa fa-star" ></i>
+            <i class="fa fa-star" ></i>
+            <i class="fa fa-star" ></i>
+        </div>
+    </div>
+    <script>
+        const stars = document.querySelectorAll(".rating-star i")
+        stars.forEach((star,index1)=>{
+            star.addEventListener("click",function(){
+                stars.forEach((star,index2)=>{
+                    index1 >= index2 ? star.classList.add("active") : star.classList.remove("active")
+                })
+            })
+        })
+    </script>
+</body>
+</html>
