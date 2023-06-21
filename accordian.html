@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;box-sizing: border-box;}
+        body{background-color:rgb(29, 169, 167);display:flex;align-items: center;justify-content: center;min-height: 100vh;}
+        .accordian{max-width: 600px;}
+        .accordian .contentbox{position:relative;padding:10px;}
+        .accordian .contentbox .question{position:relative;background-color: coral;padding:10px;color:white;}
+        .accordian .contentbox .question::before{
+            content: "+";
+            position:absolute;
+            top:50%;right:10px;font-size: 1.5rem;font-weight: bold;
+            transform: translateY(-50%);
+        }
+        .accordian .contentbox .answer{position:relative;height:0;overflow-y: hidden;transition: 0.5s;}
+        .accordian .contentbox.active .question::before{
+            content: "-";
+        }
+        .accordian .contentbox.active .answer{
+            height:100px;
+            padding:10px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordian">
+        <div class="contentbox">
+            <div class="question">what is html?</div>
+            <div class="answer">HTML is the standard markup language for Web page With HTML you can create your own Website.
+                 HTML is easy to learn - You will enjoy it!</div>
+        </div>
+        <div class="contentbox">
+            <div class="question"> what is css?</div>
+            <div class="answer">CSS is the language we use to style an HTML document.
+
+                CSS describes how HTML elements should be displayed.
+                
+                This tutorial will teach you CSS from basic to advanced.</div>
+        </div>
+        <div class="contentbox">
+            <div class="question">what is javascript?</div>
+            <div class="answer">JavaScript is the world's most popular programming language.
+
+                JavaScript is the programming language of the Web.
+                
+                JavaScript is easy to learn.</div>
+        </div>
+        <div class="contentbox">
+            <div class="question">what is bootstrap?</div>
+            <div class="answer">Bootstrap 5 is the newest version of Bootstrap, which is the most popular HTML, CSS,
+                 and JavaScript framework for creating responsive, mobile-first websites.</div>
+        </div>
+    </div>
+    <script>
+        let getanswer = document.getElementsByClassName("contentbox")
+
+        for(let i=0;i<getanswer.length;i++){
+            getanswer[i].addEventListener("click",function(){
+                this.classList.toggle("active")
+            })
+        }
+    </script>
+</body>
+</html>
